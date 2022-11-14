@@ -25,7 +25,8 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movementInput * minSpeed * Time.fixedDeltaTime);
+        velocity += movementInput * Time.fixedDeltaTime;
+        rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
     }
 
     /**
