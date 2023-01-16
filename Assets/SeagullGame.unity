@@ -248,6 +248,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1459248120238274614, guid: 89da8d60282059e4489a55add0334d76, type: 3}
+      propertyPath: direction.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459248120238274614, guid: 89da8d60282059e4489a55add0334d76, type: 3}
+      propertyPath: direction.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459248120238274614, guid: 89da8d60282059e4489a55add0334d76, type: 3}
+      propertyPath: sensitivity
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2531050966146516528, guid: 89da8d60282059e4489a55add0334d76, type: 3}
       propertyPath: m_Name
       value: Seagull
