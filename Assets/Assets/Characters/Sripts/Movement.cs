@@ -5,7 +5,9 @@ using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
-    public float minSpeed = 1f;
+    public float speed = 1f;
+    public Vector2 direction;
+    public float sensitivity;
 
     Vector2 movementInput;
     Rigidbody2D rb;
@@ -25,17 +27,19 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        velocity += movementInput * Time.fixedDeltaTime;
+        direction += movementInput * sensitivity * Time.fixedDeltaTime;
+        direction.Normalize();
+        velocity = speed * direction;
         rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
     }
 
     /**
-    * This is the method that runs when reacieving movement input.
+    * This is the method that runs when recieving movement input.
     *
     * @param movementInput is the movement input recived. 
     */
-    void OnMove(InputValue movmentValue)
+    void OnMove(InputValue movementValue)
     {
-        movementInput = movmentValue.Get<Vector2>();
+        movementInput = movementValue.Get<Vector2>();
     }
 }
