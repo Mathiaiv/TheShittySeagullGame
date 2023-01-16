@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class Movement : MonoBehaviour
 {
     public float speed = 1f;
-    public Vector2 direction;
+    [SerializeField] private Vector2 direction;
     public float sensitivity;
 
     Vector2 movementInput;
@@ -27,8 +27,9 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        direction += movementInput * sensitivity * Time.fixedDeltaTime;
+        direction += sensitivity * Time.fixedDeltaTime * movementInput;
         direction.Normalize();
+        rb.transform.up = direction;
         velocity = speed * direction;
         rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
     }
