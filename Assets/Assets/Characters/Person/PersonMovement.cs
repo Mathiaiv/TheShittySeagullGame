@@ -18,5 +18,6 @@ public class PersonMovement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        transform.position = Vector2.Lerp(transform.position, end.position, Time.deltaTime);
     }
 }
