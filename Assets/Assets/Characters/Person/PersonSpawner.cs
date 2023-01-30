@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 public class PersonSpawner : MonoBehaviour
@@ -13,7 +14,7 @@ public class PersonSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spawnPoints = transform.GetComponentsInChildren<Transform>();
+        spawnPoints = transform.GetComponentsInChildren<Transform>().Where(t => t != transform).ToArray();
         _whenToSpawn = 0;
         _numberOfPersons = 0;
     }
@@ -24,6 +25,7 @@ public class PersonSpawner : MonoBehaviour
         if (_whenToSpawn < spawnRate) return;
         if (_numberOfPersons < maxPersons)
         {
+            _numberOfPersons++;
             PersonMovement person = Instantiate(personPrefab);
             int i = Random.Range(0, spawnPoints.Length);
             person.start = spawnPoints[i];
