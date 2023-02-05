@@ -1,43 +1,37 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// A script for all things to do with poop
+/// </summary>
 public class Poop : MonoBehaviour
 {
-    public GameObject poop;
-    public Slider poopBar;
-    public float maxPoop = 10;
-    public float poopRegenRate;
-    public float poopAmount;
-        
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private GameObject poop;
+    [SerializeField] private Slider poopBar;
+    [SerializeField] private float maxPoop = 10;
+    [SerializeField] private float poopRegenRate;
+    private float _poopAmount;
+
+    /// <summary>
+    /// Increases the poop gradually over time based on poopRegenRate
+    /// </summary>
+    private void FixedUpdate()
     {
+        if (_poopAmount < maxPoop) 
+        {
+            _poopAmount += poopRegenRate * Time.fixedDeltaTime;
+        }
+        else _poopAmount = 10;
+        poopBar.value = _poopAmount / maxPoop;
     }
 
-    /*
-    increases the poop gradualy over time
-    */
-    void FixedUpdate()
+    /// <summary>
+    /// The seagull poops if there is poop inside its body
+    /// </summary>
+    private void OnFire()
     {
-        if (poopAmount < maxPoop) 
-        {
-            poopAmount += poopRegenRate * Time.fixedDeltaTime;
-        }
-        else poopAmount = 10;
-        poopBar.value = poopAmount;
-    }
-
-    /*
-    The seagull poops if there is poop inside your body
-    */
-    void OnFire()
-    {
-        if ( poopAmount > 1) 
-        {
-            poopAmount--;
-            GameObject.Instantiate(poop, transform.position, default);
-        }
+        if (_poopAmount < 1) return;
+        _poopAmount--;
+        Instantiate(poop, transform.position, default);
     }
 }
