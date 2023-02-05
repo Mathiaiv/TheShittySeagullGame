@@ -1,46 +1,49 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// A script for everything to do with movement of the seagull
+/// </summary>
 public class Movement : MonoBehaviour
 {
-    public float speed = 1f;
+    [SerializeField] private float speed = 1f;
+    [SerializeField] private float sensitivity;
     [SerializeField] private Vector2 direction;
-    public float sensitivity;
 
-    Vector2 movementInput;
-    Rigidbody2D rb;
-    Vector2 velocity;
-
-    // Start is called before the first frame update
-    void Start()
+    private Vector2 _movementInput;
+    private Rigidbody2D _rb;
+    private Vector2 _velocity;
+    
+    /// <summary>
+    /// Start is called before the first frame update
+    /// </summary>
+    private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    /// <summary>
+    /// Changes the direction of the seagull based on the sensitivity and the movement input
+    /// Changes the velocity based on the speed and the direction
+    /// Moves the seagull based on the velocity
+    /// </summary>
     private void FixedUpdate()
     {
-        direction += sensitivity * Time.fixedDeltaTime * movementInput;
+        direction += sensitivity * Time.fixedDeltaTime * _movementInput;
         direction.Normalize();
-        rb.transform.up = direction;
-        velocity = speed * direction;
-        rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
+        _rb.transform.up = direction;
+        _velocity = speed * direction;
+        _rb.MovePosition(_rb.position + _velocity * Time.fixedDeltaTime);
     }
-
-    /**
-    * This is the method that runs when recieving movement input.
-    *
-    * @param movementInput is the movement input recived. 
-    */
-    void OnMove(InputValue movementValue)
+    
+    /// <summary>
+    /// Take in the movement as a vector
+    /// </summary>
+    /// <param name="movementValue">
+    /// is the movement input received. 
+    /// </param>
+    private void OnMove(InputValue movementValue)
     {
-        movementInput = movementValue.Get<Vector2>();
+        _movementInput = movementValue.Get<Vector2>();
     }
 }
