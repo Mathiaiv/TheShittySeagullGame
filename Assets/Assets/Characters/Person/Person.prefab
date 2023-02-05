@@ -121,4 +121,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   start: {fileID: 0}
   end: {fileID: 0}
-  speed: 0
+  speed: 1
