@@ -21,7 +21,7 @@ public class Poop : MonoBehaviour
         {
             _poopAmount += poopRegenRate * Time.fixedDeltaTime;
         }
-        else _poopAmount = 10;
+        else _poopAmount = maxPoop;
         poopBar.value = _poopAmount / maxPoop;
     }
 
