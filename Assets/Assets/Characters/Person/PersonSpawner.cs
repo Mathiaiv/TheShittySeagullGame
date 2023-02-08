@@ -9,32 +9,18 @@ public class PersonSpawner : MonoBehaviour
 {
     public GameObject[] spawnPoints;
     public float spawnRate = 1;
-    public int maxPersons = 10;
-    public PersonMovement personPrefab;
+    public Person personPrefab;
 
     private float _whenToSpawn;
-    private int _numberOfPersons;
-    private List<PersonMovement> persons;
+    private List<Person> persons;
     
     /// <summary>
     /// Start is called before the first frame update
     /// </summary>
     private void Start()
     {
+        persons = new List<Person>();
         _whenToSpawn = 0;
-        _numberOfPersons = 0;
-        for (var i = 0; i < maxPersons; i++)
-        {
-            persons.Add(Instantiate(personPrefab));
-        }
-    }
-
-    private void KillAllFinished()
-    {
-        foreach (var personMovement in persons)
-        {
-            if (personMovement.isFinished) personMovement.enabled = false;
-        }
     }
 
     /// <summary>
@@ -42,17 +28,16 @@ public class PersonSpawner : MonoBehaviour
     /// </summary>
     private void Update()
     {
-        //KillAllFinished();
         _whenToSpawn += Time.deltaTime;
         if (_whenToSpawn < spawnRate) return;
-        if (_numberOfPersons < maxPersons)
+        var person = PersonPool.Instance.GetPooledPerson();
+        if (person != null)
         {
-            _numberOfPersons++;
-            var person = Instantiate(personPrefab);
+            person.gameObject.SetActive(true);
             var i = Random.Range(0, spawnPoints.Length);
             person.start = spawnPoints[i].transform;
             var j = 0;
-            do {
+            do { 
                 j = Random.Range(0, spawnPoints.Length);
             } while (i == j);
             person.end = spawnPoints[j].transform;
