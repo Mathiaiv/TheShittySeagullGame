@@ -13,6 +13,7 @@ public class Movement : MonoBehaviour
     private Vector2 _movementInput;
     private Rigidbody2D _rb;
     private Vector2 _velocity;
+    private Vector2 _resistance;
     
     /// <summary>
     /// Start is called before the first frame update
@@ -29,10 +30,12 @@ public class Movement : MonoBehaviour
     /// </summary>
     private void FixedUpdate()
     {
+        _resistance = new Vector2(0, 0);
         direction += sensitivity * Time.fixedDeltaTime * _movementInput;
         direction.Normalize();
         _rb.transform.up = direction;
         _velocity = speed * direction;
+        _velocity += _resistance;
         _rb.MovePosition(_rb.position + _velocity * Time.fixedDeltaTime);
     }
     
@@ -45,5 +48,25 @@ public class Movement : MonoBehaviour
     private void OnMove(InputValue movementValue)
     {
         _movementInput = movementValue.Get<Vector2>();
+    }
+
+    /**
+     * Runs continuously when the seagull collides with other objects
+     */
+    private void OnTriggerStay2D(Collider2D col)
+    {
+        //What happens when it hits a wind box
+        if (col.gameObject.tag == "Wind"){
+            _resistance = new Vector2(3.8F, 0);
+            Debug.Log("Vind");
+        } else{
+            
+            Debug.Log("Ikke vind");
+        }
+    }
+
+    private Vector2 findResistance(){
+
+        return new Vector2(0, 0);
     }
 }
