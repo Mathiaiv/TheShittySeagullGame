@@ -11,14 +11,18 @@ public class Person : MonoBehaviour
     public Transform end;
     [SerializeField] private float speed = 1f;
     [SerializeField] private float finishRadius = 1f;
+    private Animator _animator;
     private Vector3 _direction;
     private Vector3 _acceleration;
     private const float TurningSensitivity = 5f;
     [SerializeField] private float angle = 2f;
     [SerializeField] private float visionDistance = 3f;
+    private static readonly int DirX = Animator.StringToHash("dirX");
+    private static readonly int DirY = Animator.StringToHash("dirY");
 
     public void Spawn()
     {
+        _animator = GetComponent<Animator>();
         transform.position = start.position;
         _direction = (end.position - transform.position).normalized;
     }
@@ -43,6 +47,8 @@ public class Person : MonoBehaviour
         
         _direction += TurningSensitivity * Time.fixedDeltaTime * _acceleration;
         _direction.Normalize();
+        _animator.SetFloat(DirX, _direction.x);
+        _animator.SetFloat(DirY, _direction.y);
         transform.position += _direction * (speed * Time.fixedDeltaTime);
         
         if ((Vector2.Distance(transform.position, end.position) > finishRadius)) return;

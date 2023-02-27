@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 4731378742301127674}
   - component: {fileID: 4731378742301127672}
   - component: {fileID: 4731378742301127673}
-  - component: {fileID: -7529061921877508529}
+  - component: {fileID: 1602303318218572917}
+  - component: {fileID: 2306266326921962346}
   m_Layer: 0
   m_Name: Person
   m_TagString: Untagged
@@ -122,12 +123,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   start: {fileID: 0}
   end: {fileID: 0}
-  speed: 0.14
+  speed: 0.05
   finishRadius: 0.16
   angle: 5
   visionDistance: 3
---- !u!58 &-7529061921877508529
-CircleCollider2D:
+--- !u!95 &1602303318218572917
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4731378742301127677}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f647343e0f0ea3a4e8b5461d5e58cd99, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!70 &2306266326921962346
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -139,6 +160,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.12
+  m_Offset: {x: 0.0011545914, y: -0.08653619}
+  m_Size: {x: 0.13616459, y: 0.033855204}
+  m_Direction: 1
