@@ -30,7 +30,7 @@ public class Movement : MonoBehaviour
     /// </summary>
     private void FixedUpdate()
     {
-        _resistance = new Vector2(0, 0);
+        //_resistance = new Vector2(0, 0);
         direction += sensitivity * Time.fixedDeltaTime * _movementInput;
         direction.Normalize();
         _rb.transform.up = direction;
@@ -50,23 +50,10 @@ public class Movement : MonoBehaviour
         _movementInput = movementValue.Get<Vector2>();
     }
 
-    /**
-     * Runs continuously when the seagull collides with other objects
-     */
-    private void OnTriggerStay2D(Collider2D col)
-    {
-        //What happens when it hits a wind box
-        if (col.gameObject.tag == "Wind"){
-            _resistance = new Vector2(3.8F, 0);
-            Debug.Log("Vind");
-        } else{
-            
-            Debug.Log("Ikke vind");
-        }
-    }
+    //Reset resistance here
 
-    private Vector2 findResistance(){
+    public void changeResistance(){
 
-        return new Vector2(0, 0);
+        Debug.Log("Holy Moly");
     }
 }
