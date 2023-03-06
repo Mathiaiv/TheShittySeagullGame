@@ -25,7 +25,7 @@ public class Windboxy : MonoBehaviour
         if (col.gameObject.name == "Seagull")
         {
             Debug.Log("Yas");
-            //Movement.changeResistance();
+            //Movement.changeResistance();      //Have to try and call this function, but I need to reference the object, whatever that means
         }
     }
 
