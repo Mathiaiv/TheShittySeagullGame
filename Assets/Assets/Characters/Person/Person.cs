@@ -54,4 +54,13 @@ public class Person : MonoBehaviour
         if ((Vector2.Distance(transform.position, end.position) > finishRadius)) return;
         gameObject.SetActive(false);
     }
+
+    /*
+     * Runs if the person has been pooped on
+    */
+    public void shot()
+    {
+        Debug.Log("Yay");
+        gameObject.SetActive(false);
+    }
 }

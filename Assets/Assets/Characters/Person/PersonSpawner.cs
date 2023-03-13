@@ -10,7 +10,7 @@ public class PersonSpawner : MonoBehaviour
     public GameObject[] spawnPoints;
     public float spawnRate = 1;
     public Person personPrefab;
-
+    
     private float _whenToSpawn;
     private List<Person> persons;
     
@@ -41,6 +41,8 @@ public class PersonSpawner : MonoBehaviour
                 j = Random.Range(0, spawnPoints.Length);
             } while (i == j);
             person.end = spawnPoints[j].transform;
+            var k = Random.Range(0, personPrefab.GetComponent<SpriteChanger>().skins.Length);
+            person.GetComponent<SpriteChanger>().skinNr = k;
             person.Spawn();
         }
         _whenToSpawn = 0;
