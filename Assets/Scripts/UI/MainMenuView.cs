@@ -4,6 +4,10 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
+/**
+ * View for main menu. Handles:
+ * - Button events
+ */
 public class MainMenuView : MonoBehaviour
 {
     [FormerlySerializedAs("gameScene")] [SerializeField] private String gameSceneName;
