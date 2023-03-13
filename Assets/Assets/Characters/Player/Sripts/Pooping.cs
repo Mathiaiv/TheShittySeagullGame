@@ -4,7 +4,7 @@ using UnityEngine.UI;
 /// <summary>
 /// A script for all things to do with poop
 /// </summary>
-public class Poop : MonoBehaviour
+public class Pooping : MonoBehaviour
 {
     [SerializeField] private GameObject poop;
     [SerializeField] private Slider poopBar;
