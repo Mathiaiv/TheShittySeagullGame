@@ -29,7 +29,6 @@ public class MainMenuView : MonoBehaviour
     private void PlayGame()
     {
         SceneManager.LoadScene(gameSceneName);
-        Destroy(this.gameObject);
     }
 
     private void ShowScoreboard()
