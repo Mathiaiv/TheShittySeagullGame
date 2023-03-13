@@ -4,11 +4,16 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
+/**
+ * View for pause menu. Handles:
+ * - Showing/hiding the pause menu
+ * - Button events
+ */
 public class PauseMenuView : MonoBehaviour
 {
     [SerializeField] private CanvasGroup canvasGroup;
     
-    [FormerlySerializedAs("gameSceneName")] [SerializeField] private string mainMenuSceneName;
+    [SerializeField] private string mainMenuSceneName;
     
     [SerializeField] private Button resumeButton;
     [SerializeField] private Button mainMenuButton;

@@ -2,6 +2,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/**
+ * View for main menu. Handles:
+ * - Button events
+ */
 public class MainMenuView : MonoBehaviour
 {
     [SerializeField] private string gameSceneName;
