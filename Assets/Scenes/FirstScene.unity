@@ -710,7 +710,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1117624685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1213,6 +1213,46 @@ PrefabInstance:
       propertyPath: maxPersons
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2857045596042549235, guid: b733c4c90c704344fa9ee83cf7e2a9e0, type: 3}
+      propertyPath: sprites.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2857045596042549235, guid: b733c4c90c704344fa9ee83cf7e2a9e0, type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: -1786725405, guid: 1e2dd632b1a54f844a3769f657e7e05d, type: 3}
+    - target: {fileID: 2857045596042549235, guid: b733c4c90c704344fa9ee83cf7e2a9e0, type: 3}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 60aa0e44440be864bad71c999f3e94dc, type: 3}
+    - target: {fileID: 2857045596042549235, guid: b733c4c90c704344fa9ee83cf7e2a9e0, type: 3}
+      propertyPath: sprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: fa90c368abe8d9b4bad0645b00cc798f, type: 3}
+    - target: {fileID: 2857045596042549235, guid: b733c4c90c704344fa9ee83cf7e2a9e0, type: 3}
+      propertyPath: sprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 2db24c32eb3aa5b43837265ac53f6417, type: 3}
+    - target: {fileID: 2857045596042549235, guid: b733c4c90c704344fa9ee83cf7e2a9e0, type: 3}
+      propertyPath: sprites.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: 3383306b6a1bb8f4aa821b4092dafdde, type: 3}
+    - target: {fileID: 2857045596042549235, guid: b733c4c90c704344fa9ee83cf7e2a9e0, type: 3}
+      propertyPath: sprites.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300000, guid: 41a31b008ab17c84a943b25f7a8d3226, type: 3}
+    - target: {fileID: 2857045596042549235, guid: b733c4c90c704344fa9ee83cf7e2a9e0, type: 3}
+      propertyPath: sprites.Array.data[6]
+      value: 
+      objectReference: {fileID: 21300000, guid: 013ce60af55ae2b4b819f7601aad2d0c, type: 3}
+    - target: {fileID: 2857045596042549235, guid: b733c4c90c704344fa9ee83cf7e2a9e0, type: 3}
+      propertyPath: sprites.Array.data[7]
+      value: 
+      objectReference: {fileID: 21300000, guid: ea31999ead2ff284d98cc2660bc83e29, type: 3}
+    - target: {fileID: 2857045596042549235, guid: b733c4c90c704344fa9ee83cf7e2a9e0, type: 3}
+      propertyPath: sprites.Array.data[8]
+      value: 
+      objectReference: {fileID: 21300000, guid: da7e018328757db4682ca5d10c294922, type: 3}
     - target: {fileID: 2857045596042549235, guid: b733c4c90c704344fa9ee83cf7e2a9e0, type: 3}
       propertyPath: spawnPoints.Array.size
       value: 4
