@@ -1,10 +1,12 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class MainMenuView : MonoBehaviour
 {
-    [SerializeField] private string gameSceneName;
+    [FormerlySerializedAs("gameScene")] [SerializeField] private String gameSceneName;
     
     [SerializeField] private Button playButton;
     [SerializeField] private Button scoreboardButton;
