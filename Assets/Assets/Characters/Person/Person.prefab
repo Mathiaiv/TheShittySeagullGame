@@ -14,11 +14,7 @@ GameObject:
   - component: {fileID: 4731378742301127673}
   - component: {fileID: 1602303318218572917}
   - component: {fileID: 2306266326921962346}
-<<<<<<< Updated upstream
   - component: {fileID: 6375562830514687352}
-=======
-  - component: {fileID: 5211560603793740516}
->>>>>>> Stashed changes
   m_Layer: 0
   m_Name: Person
   m_TagString: People
@@ -168,20 +164,14 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0011545914, y: -0.08653619}
   m_Size: {x: 0.13616459, y: 0.033855204}
   m_Direction: 1
-<<<<<<< Updated upstream
 --- !u!114 &6375562830514687352
 MonoBehaviour:
-=======
---- !u!61 &5211560603793740516
-BoxCollider2D:
->>>>>>> Stashed changes
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4731378742301127677}
   m_Enabled: 1
-<<<<<<< Updated upstream
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e26fdfd2d9415ed40817edc4070ccab3, type: 3}
   m_Name: 
@@ -549,23 +539,3 @@ BoxCollider2D:
     - {fileID: 1210184235, guid: da7e018328757db4682ca5d10c294922, type: 3}
     - {fileID: -1348128983, guid: da7e018328757db4682ca5d10c294922, type: 3}
   spriteNr: 0
-=======
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.0005847886, y: -0.00031209737}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.32}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.15181293, y: 0.20709597}
-  m_EdgeRadius: 0
->>>>>>> Stashed changes
