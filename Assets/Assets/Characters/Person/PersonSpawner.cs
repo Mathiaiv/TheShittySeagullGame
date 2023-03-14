@@ -35,15 +35,13 @@ public class PersonSpawner : MonoBehaviour
         {
             person.gameObject.SetActive(true);
             var i = Random.Range(0, spawnPoints.Length);
-            person.start = spawnPoints[i].transform;
             var j = 0;
             do { 
                 j = Random.Range(0, spawnPoints.Length);
             } while (i == j);
-            person.end = spawnPoints[j].transform;
             var k = Random.Range(0, personPrefab.GetComponent<SpriteChanger>().skins.Length);
             person.GetComponent<SpriteChanger>().skinNr = k;
-            person.Spawn();
+            person.Spawn(0.05f, spawnPoints[i].transform.position, spawnPoints[j].transform.position);
         }
         _whenToSpawn = 0;
     }

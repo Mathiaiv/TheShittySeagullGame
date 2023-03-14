@@ -7,24 +7,27 @@ using UnityEngine;
 /// </summary>
 public class Person : MonoBehaviour
 {
-    public Transform start;
-    public Transform end;
-    [SerializeField] private float speed = 1f;
-    [SerializeField] private float finishRadius = 1f;
+    private Vector3 end;
+    [SerializeField] private float speed = 0.05f;
+    [SerializeField] private float finishRadius = 0.16f;
     private Animator _animator;
     private Vector3 _direction;
     private Vector3 _acceleration;
     private const float TurningSensitivity = 5f;
-    [SerializeField] private float angle = 2f;
+    [SerializeField] private float angle = 5f;
     [SerializeField] private float visionDistance = 3f;
     private static readonly int DirX = Animator.StringToHash("dirX");
     private static readonly int DirY = Animator.StringToHash("dirY");
+    private bool isPoopedOn;
 
-    public void Spawn()
+    public void Spawn(float speed, Vector2 start, Vector2 end)
     {
+        this.speed = speed;
+        isPoopedOn = false;
         _animator = GetComponent<Animator>();
-        transform.position = start.position;
-        _direction = (end.position - transform.position).normalized;
+        transform.position = start;
+        this.end = end;
+        _direction = (end - start).normalized;
     }
     
     /// <summary>
@@ -33,7 +36,7 @@ public class Person : MonoBehaviour
     private void Update()
     {
         if (!enabled) return;
-        var hit = Physics2D.Raycast(transform.position + _direction, end.position - transform.position, visionDistance);
+        var hit = Physics2D.Raycast(transform.position + _direction, end - transform.position, visionDistance);
         if (hit.collider != null)
         {
             Debug.DrawLine(transform.position + _direction, hit.point, Color.red);
@@ -42,7 +45,7 @@ public class Person : MonoBehaviour
         }
         else
         {
-            _acceleration = (end.position - transform.position).normalized;
+            _acceleration = (end - transform.position).normalized;
         }
         
         _direction += TurningSensitivity * Time.fixedDeltaTime * _acceleration;
@@ -51,16 +54,17 @@ public class Person : MonoBehaviour
         _animator.SetFloat(DirY, _direction.y);
         transform.position += _direction * (speed * Time.fixedDeltaTime);
         
-        if ((Vector2.Distance(transform.position, end.position) > finishRadius)) return;
+        if ((Vector2.Distance(transform.position, end) > finishRadius)) return;
         gameObject.SetActive(false);
     }
 
     /*
      * Runs if the person has been pooped on
     */
-    public void shot()
+    public void Shot()
     {
-        Debug.Log("Yay");
-        gameObject.SetActive(false);
+        if (isPoopedOn) return;
+        isPoopedOn = true;
+        speed *= 3;
     }
 }

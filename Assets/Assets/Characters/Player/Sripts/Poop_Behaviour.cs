@@ -35,7 +35,7 @@ public class Poop_Behaviour : MonoBehaviour
     {
         if (col.tag == "People")
         {
-            col.GetComponent<Person>().shot();
+            col.GetComponent<Person>().Shot();
             Debug.Log("Awesome");
             Destroy(this.gameObject);
         }
