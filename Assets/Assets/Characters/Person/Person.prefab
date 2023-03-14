@@ -123,11 +123,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180505fcf9e2d5641ad53ec6395fea0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  start: {fileID: 0}
-  end: {fileID: 0}
   speed: 0.05
   finishRadius: 0.16
-  angle: 5
+  angle: 1
   visionDistance: 3
 --- !u!95 &1602303318218572917
 Animator:
