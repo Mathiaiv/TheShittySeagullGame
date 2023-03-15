@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1459248120238274614}
   - component: {fileID: 7189211668421617180}
   - component: {fileID: 1540618406}
+  - component: {fileID: 2103640848}
   m_Layer: 0
   m_Name: Seagull
   m_TagString: Untagged
@@ -77,12 +78,12 @@ SpriteRenderer:
   m_SortingLayerID: -350343739
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a5f38e46571e74d47a136809c484cc2c, type: 3}
+  m_Sprite: {fileID: -1422057492, guid: 1647938cfd725384ebbfbd53546fe430, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.53, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -170,3 +171,23 @@ MonoBehaviour:
   poopBar: {fileID: 0}
   maxPoop: 5
   poopRegenRate: 0.5
+--- !u!95 &2103640848
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2531050966146516528}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: af9d5d1883442964c97147becef08e9d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
