@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -10,16 +8,15 @@ public class PersonSpawner : MonoBehaviour
     public GameObject[] spawnPoints;
     public float spawnRate = 1;
     public Person personPrefab;
-    
     private float _whenToSpawn;
-    private List<Person> persons;
+    private int numberOfSkins;
     
     /// <summary>
     /// Start is called before the first frame update
     /// </summary>
     private void Start()
     {
-        persons = new List<Person>();
+        numberOfSkins = personPrefab.GetComponent<SpriteChanger>().skins.Length;
         _whenToSpawn = 0;
     }
 
@@ -33,15 +30,13 @@ public class PersonSpawner : MonoBehaviour
         var person = PersonPool.Instance.GetPooledPerson();
         if (person != null)
         {
-            person.gameObject.SetActive(true);
             var i = Random.Range(0, spawnPoints.Length);
             var j = 0;
             do { 
                 j = Random.Range(0, spawnPoints.Length);
             } while (i == j);
-            var k = Random.Range(0, personPrefab.GetComponent<SpriteChanger>().skins.Length);
-            person.GetComponent<SpriteChanger>().skinNr = k;
-            person.Spawn(0.05f, spawnPoints[i].transform.position, spawnPoints[j].transform.position);
+            var k = Random.Range(0, numberOfSkins);
+            person.Spawn(k,0.05f, spawnPoints[i].transform.position, spawnPoints[j].transform.position);
         }
         _whenToSpawn = 0;
     }

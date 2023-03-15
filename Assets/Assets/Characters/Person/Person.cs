@@ -11,26 +11,26 @@ public class Person : MonoBehaviour
     [SerializeField] private float speed = 0.05f;
     [SerializeField] private float finishRadius = 0.16f;
     private Animator _animator;
+    private SpriteChanger _spriteChanger;
     private Vector3 _direction;
     private Vector3 _acceleration;
     private const float TurningSensitivity = 5f;
-    //[SerializeField] private float angle = 1f;
-    //[SerializeField] private float visionDistance = 3f;
     private static readonly int DirX = Animator.StringToHash("dirX");
     private static readonly int DirY = Animator.StringToHash("dirY");
-    private bool isPoopedOn;
-    private CircleCollider2D col;
+    private static readonly int IsPoopedOn = Animator.StringToHash("isPoopedOn");
 
     private void Start()
     {
-        col = GetComponent<CircleCollider2D>();
         _animator = GetComponent<Animator>();
+        _spriteChanger = GetComponent<SpriteChanger>();
     }
 
-    public void Spawn(float speed, Vector2 start, Vector2 end)
+    public void Spawn(int skinNr, float speed, Vector2 start, Vector2 end)
     {
+        gameObject.SetActive(true);
+        _spriteChanger.skinNr = skinNr;
         this.speed = speed;
-        isPoopedOn = false;
+        _animator.SetBool(IsPoopedOn, false);
         transform.position = start;
         this.end = end;
         _direction = (end - start).normalized;
@@ -58,8 +58,8 @@ public class Person : MonoBehaviour
     */
     public void Shot()
     {
-        if (isPoopedOn) return;
-        isPoopedOn = true;
+        if (_animator.GetBool(IsPoopedOn)) return;
+        _animator.SetBool(IsPoopedOn, true);
         speed *= 3;
     }
 }
