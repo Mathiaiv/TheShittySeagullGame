@@ -23,9 +23,7 @@ public class PersonPool : MonoBehaviour
     {
         for (var i = 0; i < numberOfPersons; i++)
         {
-            var person = Instantiate(personPrefab);
-            person.gameObject.SetActive(false);
-            _pooledPerson.Add(person);
+            _pooledPerson.Add(Instantiate(personPrefab));
         }
     }
 

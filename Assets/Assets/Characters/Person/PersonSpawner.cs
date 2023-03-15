@@ -28,16 +28,14 @@ public class PersonSpawner : MonoBehaviour
         _whenToSpawn += Time.deltaTime;
         if (_whenToSpawn < spawnRate) return;
         var person = PersonPool.Instance.GetPooledPerson();
-        if (person != null)
-        {
-            var i = Random.Range(0, spawnPoints.Length);
-            var j = 0;
-            do { 
-                j = Random.Range(0, spawnPoints.Length);
-            } while (i == j);
-            var k = Random.Range(0, numberOfSkins);
-            person.Spawn(k,0.05f, spawnPoints[i].transform.position, spawnPoints[j].transform.position);
-        }
         _whenToSpawn = 0;
+        if (person == null) return;
+        var i = Random.Range(0, spawnPoints.Length);
+        var j = 0;
+        do { 
+            j = Random.Range(0, spawnPoints.Length);
+        } while (i == j);
+        var k = Random.Range(0, numberOfSkins);
+        person.Spawn(k,0.05f, spawnPoints[i].transform.position, spawnPoints[j].transform.position);
     }
 }

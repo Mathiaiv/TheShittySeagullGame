@@ -19,19 +19,20 @@ public class Person : MonoBehaviour
     private static readonly int DirY = Animator.StringToHash("dirY");
     private static readonly int IsPoopedOn = Animator.StringToHash("isPoopedOn");
 
-    private void Start()
+    private void Awake()
     {
         _animator = GetComponent<Animator>();
         _spriteChanger = GetComponent<SpriteChanger>();
+        gameObject.SetActive(false);
     }
 
-    public void Spawn(int skinNr, float speed, Vector2 start, Vector2 end)
+    public void Spawn(int skinNr, float speed, Vector3 start, Vector3 end)
     {
-        gameObject.SetActive(true);
+        transform.position = start;
         _spriteChanger.skinNr = skinNr;
+        gameObject.SetActive(true);
         this.speed = speed;
         _animator.SetBool(IsPoopedOn, false);
-        transform.position = start;
         this.end = end;
         _direction = (end - start).normalized;
     }

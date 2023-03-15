@@ -125,8 +125,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.05
   finishRadius: 0.16
-  angle: 1
-  visionDistance: 3
 --- !u!95 &1602303318218572917
 Animator:
   serializedVersion: 4
