@@ -45,11 +45,11 @@ TagManager:
   - name: Ground
     uniqueID: 2455817851
     locked: 0
+  - name: Poop
+    uniqueID: 2625317587
+    locked: 0
   - name: People
     uniqueID: 2250235179
-    locked: 0
-  - name: Poop
-    uniqueID: 1629936799
     locked: 0
   - name: Player
     uniqueID: 3944623557
