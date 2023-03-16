@@ -32,7 +32,7 @@ public class MainMenuView : MonoBehaviour
 
     private void PlayGame()
     {
-        SceneManager.LoadScene(gameSceneName);
+        SceneManager.LoadScene("FirstLevel");
     }
 
     private void ShowScoreboard()
