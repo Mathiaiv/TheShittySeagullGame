@@ -6,6 +6,8 @@ public class Poop_Behaviour : MonoBehaviour
 {
 
     [SerializeField] private float lifeTime;    //How many seconds before the poop disappears
+    [SerializeField] private float activationTime; //How many seconds before the poop collision activates
+    [SerializeField] private float deactivationTime; //How many seconds before the poop collision activates
 
     private float age;      //How long the poop has lived
 
@@ -31,9 +33,9 @@ public class Poop_Behaviour : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    private void OnTriggerStay2D(Collider2D col)
     {
-        if (col.tag == "People")
+        if (age > activationTime && age < deactivationTime && col.tag.Equals("People"))
         {
             col.GetComponent<Person>().Shot();
             Debug.Log("Awesome");
