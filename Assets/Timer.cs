@@ -26,14 +26,19 @@ public class Timer : MonoBehaviour
             }
             else
             {
-                Debug.Log("Times up!");
-                running = false;
-                timeRemaining = 0;
-                SceneManager.LoadScene("MainMenu");
+                TimesUp();
             }
         }
 
         display.text = DisplayString();
+    }
+
+    private void TimesUp()
+    {
+        Debug.Log("Times up!");
+        running = false;
+        timeRemaining = 0;
+        SceneManager.LoadScene("MainMenu");
     }
 
     private string DisplayString()
