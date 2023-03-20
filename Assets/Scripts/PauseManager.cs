@@ -31,6 +31,9 @@ public class PauseManager : MonoBehaviour
     {
         pauseAction.performed -= OnClickPauseAction;
         pauseAction.Dispose();
+
+        // Reset Time.timeScale
+        Time.timeScale = 1f;
     }
 
     private void OnClickPauseAction(InputAction.CallbackContext callbackContext)
