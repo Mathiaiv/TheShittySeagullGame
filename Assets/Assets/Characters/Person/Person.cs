@@ -10,8 +10,6 @@ public class Person : MonoBehaviour
     private Seeker _seeker;
     private Path _path;
     
-    [SerializeField] private float timeBetweenPathCalculations = 0.5f;
-    private float _time;
     [SerializeField] private float speed = 0.05f;
     [SerializeField] private float finishRadius = 0.16f;
     private Animator _animator;
@@ -46,9 +44,15 @@ public class Person : MonoBehaviour
     
     public void OnPathComplete (Path p)
     {
-        if (p.error) return;
-        _path = p;
-        _time = 0;
+        if (p.error)
+        {
+            Debug.Log("could not make path");
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            _path = p;
+        }
     }
     
     /// <summary>
@@ -62,12 +66,7 @@ public class Person : MonoBehaviour
             gameObject.SetActive(false);
             return;
         }
-        if (_time > timeBetweenPathCalculations)
-        {
-            _seeker.StartPath(transform.position, end, OnPathComplete);
-        }
-        _time += Time.deltaTime;
-        
+
         // Get direction to the next waypoint on the path
         var nextWaypoint = _path.vectorPath[0];
         _acceleration = (nextWaypoint - transform.position).normalized;
