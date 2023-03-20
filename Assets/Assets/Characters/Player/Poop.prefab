@@ -100,8 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 3
-  activationTime: 0.5
-  deactivationTime: 0.75
+  activationTime: 0.2
+  deactivationTime: 0.35
 --- !u!58 &-3470877639805715343
 CircleCollider2D:
   m_ObjectHideFlags: 0
