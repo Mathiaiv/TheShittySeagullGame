@@ -10,10 +10,12 @@ public class Poop_Behaviour : MonoBehaviour
     [SerializeField] private float deactivationTime; //How many seconds before the poop collision activates
 
     private float age;      //How long the poop has lived
+    private static readonly int FallingTime = Animator.StringToHash("FallingTime");
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        GetComponent<Animator>().SetFloat(FallingTime, activationTime);
         age = 0;
     }
 
