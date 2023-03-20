@@ -1,7 +1,5 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 /**
@@ -10,7 +8,7 @@ using UnityEngine.UI;
  */
 public class MainMenuView : MonoBehaviour
 {
-    [FormerlySerializedAs("gameScene")] [SerializeField] private String gameSceneName;
+    [SerializeField] private string gameSceneName;
     
     [SerializeField] private Button playButton;
     [SerializeField] private Button scoreboardButton;
