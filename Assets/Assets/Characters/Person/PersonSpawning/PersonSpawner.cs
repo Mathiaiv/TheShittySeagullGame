@@ -1,11 +1,13 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 /// <summary>
 /// A script that defines the logic of spawning persons
 /// </summary>
 public class PersonSpawner : MonoBehaviour
 {
-    public GameObject[] spawnPoints;
+    private Transform[] spawnPoints;
     public float spawnRate = 1;
     public Person personPrefab;
     private float _whenToSpawn;
@@ -16,6 +18,7 @@ public class PersonSpawner : MonoBehaviour
     /// </summary>
     private void Start()
     {
+        spawnPoints = Array.FindAll(GetComponentsInChildren<Transform>(), child => child != this.transform);
         numberOfSkins = personPrefab.GetComponent<SpriteChanger>().skins.Length;
         _whenToSpawn = 0;
     }
@@ -36,6 +39,6 @@ public class PersonSpawner : MonoBehaviour
             j = Random.Range(0, spawnPoints.Length);
         } while (i == j);
         var k = Random.Range(0, numberOfSkins);
-        person.Spawn(k,0.05f, spawnPoints[i].transform.position, spawnPoints[j].transform.position);
+        person.Spawn(k,0.05f, spawnPoints[i].position, spawnPoints[j].position);
     }
 }
