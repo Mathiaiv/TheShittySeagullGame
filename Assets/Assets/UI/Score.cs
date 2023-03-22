@@ -1,6 +1,4 @@
-﻿namespace DefaultNamespace;
-
-public class Score : MonoBehaviour
+﻿public class Score : MonoBehaviour
 {
     public int score;
     private TMP_Text display;
