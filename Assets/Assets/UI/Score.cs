@@ -14,7 +14,7 @@ public class Score : MonoBehaviour
 
     private void DisplayInt()
     {
-        display.text = score;
+        display.text = "" + score;
     }
 
     public void Update()
