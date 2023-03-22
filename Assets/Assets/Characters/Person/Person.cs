@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
@@ -14,7 +15,6 @@ public class Person : MonoBehaviour
     [SerializeField] private float finishRadius = 0.16f;
     private Animator _animator;
     private SpriteChanger _spriteChanger;
-    private Sound _sound;
     private Vector3 _direction;
     private Vector3 _acceleration;
     private const float TurningSensitivity = 5f;
@@ -22,6 +22,8 @@ public class Person : MonoBehaviour
     private static readonly int DirY = Animator.StringToHash("dirY");
     private static readonly int IsPoopedOn = Animator.StringToHash("isPoopedOn");
     private Score score;
+    [SerializeField] private List<AudioSource> audioSources;
+    private AudioSource audioSource;
 
     private void Awake()
     {
@@ -39,10 +41,10 @@ public class Person : MonoBehaviour
         _seeker.StartPath(transform.position, end, OnPathComplete);
         _spriteChanger.skinNr = skinNr;
         gameObject.SetActive(true);
-       // _sound.SetSound(true);
         this.speed = speed;
         _animator.SetBool(IsPoopedOn, false);
         _direction = (end - start).normalized;
+        audioSource = audioSources[Random.Range(0, audioSources.Count)];
     }
     
     public void OnPathComplete (Path p)
@@ -75,7 +77,7 @@ public class Person : MonoBehaviour
         _acceleration = (nextWaypoint - transform.position).normalized;
 
         // Update the direction with the new acceleration vector
-        _direction += TurningSensitivity * Time.fixedDeltaTime * _acceleration;
+        _direction += TurningSensitivity * Time.deltaTime * _acceleration;
         _direction.Normalize();
 
         // Remove waypoint from the path if we are close enough to it
@@ -86,7 +88,7 @@ public class Person : MonoBehaviour
         
         _animator.SetFloat(DirX, _direction.x);
         _animator.SetFloat(DirY, _direction.y);
-        transform.position += _direction * (speed * Time.fixedDeltaTime);
+        transform.position += _direction * (speed * Time.deltaTime);
         if ((Vector2.Distance(transform.position, end) > finishRadius)) return;
         gameObject.SetActive(false);
     }
@@ -98,7 +100,7 @@ public class Person : MonoBehaviour
     {
         if (_animator.GetBool(IsPoopedOn)) return;
         _animator.SetBool(IsPoopedOn, true);
-        //_sound.Play();
+        audioSource.Play();
         speed *= 3;
         score.addScore(1);
     }
