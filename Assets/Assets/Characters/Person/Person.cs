@@ -27,7 +27,7 @@ public class Person : MonoBehaviour
         _seeker = GetComponent<Seeker>();
         _animator = GetComponent<Animator>();
         _spriteChanger = GetComponent<SpriteChanger>();
-        gameObject.SetActive(false);
+        gameObject.SetActive(false); 
     }
 
     public void Spawn(int skinNr, float speed, Vector3 start, Vector3 end)
