@@ -1,4 +1,7 @@
-﻿public class Score : MonoBehaviour
+﻿using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+public class Score : MonoBehaviour
 {
     public int score;
     private TMP_Text display;
