@@ -20,6 +20,7 @@ public class Person : MonoBehaviour
     private static readonly int DirX = Animator.StringToHash("dirX");
     private static readonly int DirY = Animator.StringToHash("dirY");
     private static readonly int IsPoopedOn = Animator.StringToHash("isPoopedOn");
+    [SerializeField] private Score score;
 
     private void Awake()
     {
@@ -96,5 +97,6 @@ public class Person : MonoBehaviour
         if (_animator.GetBool(IsPoopedOn)) return;
         _animator.SetBool(IsPoopedOn, true);
         speed *= 3;
+        score.score++;
     }
 }
