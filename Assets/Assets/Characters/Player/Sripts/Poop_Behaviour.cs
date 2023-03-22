@@ -40,7 +40,6 @@ public class Poop_Behaviour : MonoBehaviour
         if (age > activationTime && age < deactivationTime && col.tag.Equals("People"))
         {
             col.GetComponent<Person>().Shot();
-            Debug.Log("Awesome");
             Destroy(this.gameObject);
         }
     }

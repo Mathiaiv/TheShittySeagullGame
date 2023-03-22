@@ -14,20 +14,22 @@ public class Person : MonoBehaviour
     [SerializeField] private float finishRadius = 0.16f;
     private Animator _animator;
     private SpriteChanger _spriteChanger;
+    private Sound _sound;
     private Vector3 _direction;
     private Vector3 _acceleration;
     private const float TurningSensitivity = 5f;
     private static readonly int DirX = Animator.StringToHash("dirX");
     private static readonly int DirY = Animator.StringToHash("dirY");
     private static readonly int IsPoopedOn = Animator.StringToHash("isPoopedOn");
-    [SerializeField] private Score score;
+    private Score score;
 
     private void Awake()
     {
         _seeker = GetComponent<Seeker>();
         _animator = GetComponent<Animator>();
         _spriteChanger = GetComponent<SpriteChanger>();
-        gameObject.SetActive(false); 
+        gameObject.SetActive(false);
+        score = GameObject.Find("Canvas/Score").GetComponent<Score>();
     }
 
     public void Spawn(int skinNr, float speed, Vector3 start, Vector3 end)
@@ -35,9 +37,9 @@ public class Person : MonoBehaviour
         transform.position = start;
         this.end = end;
         _seeker.StartPath(transform.position, end, OnPathComplete);
-        
         _spriteChanger.skinNr = skinNr;
         gameObject.SetActive(true);
+       // _sound.SetSound(true);
         this.speed = speed;
         _animator.SetBool(IsPoopedOn, false);
         _direction = (end - start).normalized;
@@ -96,7 +98,8 @@ public class Person : MonoBehaviour
     {
         if (_animator.GetBool(IsPoopedOn)) return;
         _animator.SetBool(IsPoopedOn, true);
+        //_sound.Play();
         speed *= 3;
-        score.score++;
+        score.addScore(1);
     }
 }

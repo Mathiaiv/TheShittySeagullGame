@@ -1,9 +1,9 @@
 ﻿using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 public class Score : MonoBehaviour
 {
-    public int score;
+    private int score;
     private TMP_Text display;
     private void Start()
     {
@@ -22,4 +22,8 @@ public class Score : MonoBehaviour
         DisplayInt();
     }
 
+    public void addScore(int points)
+    {
+        score += points;
+    }
 }
